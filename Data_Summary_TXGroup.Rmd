@@ -1,0 +1,309 @@
+---
+title: "Texas Death Row Inmates Data Summary"
+author: "Kit Ramgopal, Peyton Lepp, Julia Espero, Bec Smith"
+date: "2/19/2018"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## Introduction
+
+### Motivation
+
+1468 people have been subject to the death penalty since 1976 in the United States. (Facts about the Death Penalty) However, across this sample, states tend to employ the death penalty unevenly across racial, educational and criminal categorizations. A study of the death penalty’s relation to race showed that the odds of a prisoner in Louisiana getting the death sentence were 97% higher if their victim(s) were white compared to if their victim(s) were black. (Pierce & Radelet, 2011) There are a plethora of people sitting behind on bars on death row; some inmates may be unjust victims of a racist legal system, while others may be entirely culpable. 
+
+Texas is one of thirty-one states in the U.S. which employs the death penalty. One can be sentenced to death for crimes ranging from first-degree murder to criminal homicide. As of July 1, 2017, Texas was the state with the third-highest number of death row inmates, numbering 243 behind Florida (2) at 374 and California (1) at 746. 
+
+##Background
+
+The last words of this subset of racially charged convictions provide interesting grounds for sentiment analysis. Recording last words of death row inmates has been a practice since the inception of death row--a means for justifying the execution of the individual by showing a quality of their personhood, providing the emotional basis for perpetuating the punishment while simultaneously acknowledging their agency and individuality shortly before their death. (Lachance, 2007) Thematic analyses have uncovered themes of forgiveness, claims of innocence, silence, love/appreciation, activism, and belief of the afterlife. (Heflick, 2005) 
+
+In Texas, Christian conversions of two female offenders on death-row began as an impetus of their desire to no longer be deemed as harmful to the state. In the end, the message of one offender, a white woman named Karla Faye Tucker, was appropriated by the political Right followed by attempts to fight for her clemency. On the other hand, the other offender, Wanda Jean Allen, a black lesbian woman on death row, was not given equivalent offers. Despite being received differently, both Allen and Tucker’s pursuit of religion have been theorized as attempts to resist the state’s decision to sentence them to death. (Cooey, 2002) Similarly, in Payton v. Woodward, the Christian conversion of Payton was used as evidence that he was a reformed member of society and should be granted clemency despite brutally murdering a woman and her son. (Simmons, 2004)
+
+We therefore propose the question: is there a relationship between the amount of time an inmate has been on death row and the religious sentiment of their words? Is it possible that inmates increasingly turn to religion as a coping mechanism as their time on death row increases relative to the time other inmates spend? How does the race and age of the offender play into the expression of their religion?
+
+### Planned Analysis
+To investigate the relationship between religion in death row inmates’ last statements and time on death row, we plan to analyze a publicly available dataset from Kaggle that includes data from the Texas Department of Criminal Justice (TDCJ). The original dataset contained information on people executed by the TDCJ from 1982 to November 8th, 2017 and contained very few variables. The Kaggle dataset expands on this and includes the entirety of the last statements of 545 death row inmates, whether they have committed crimes prior to their sentencing (0 for no previous crimes, 1 for previous crimes), as well as other information such as race, age, age when received, education level and victims’ race. For the purposes of our investigation, we will analyze only race, age, age when received, and last statement. 
+
+In order to track correlation, we will operationalize the religious value of last statements using text analysis. We will look at the frequency that some words occur such as “God,” “Heaven,” “Lord,” and “Grace” and sum them to form a religion score. Secondly, we will create a “Time Spent on Death Row” variable, subtracting the age of the victim at the time of sentencing from their age at time of death.
+
+Next, we will graph religious score vs time spent on death row. Afterwards, we will visualize this correlation using a scatter plot. Finally, we will analyze the subset of data to compare the racial makeup of the religious subset compared to the average subset. This will allow us to measure whether time spent on death row correlates with increased religious value of a last statement, as well as whether race acts as a tertium quid determinant. 
+
+
+### Hypotheses and Predicted Conclusions
+
+Our central hypothesis is that there is a relationship between time spent on death row and religious diction in last words. Psychological and historical case studies prove that humans turn to religion as a way to cope with the idea of death and absolve themselves of guilt. We hypothesize that increased time for reflection regarding one’s crimes and one’s imminent execution will trigger inmates to turn increasingly to religion. However, we also recognize that certain races are correlated with increased rates of religiosity. We hypothesize that the subset of inmates who expressed religious sentiments in their last statement may have a racial breakdown with a higher percentage of Hispanic and Black inmates than the average dataset. 
+
+This pattern of findings would lead us to conclude that the death penalty may make some criminals reconsider their relationship with religion. The death penalty is obviously a controversial policy, and the role of religion as a means to seek forgiveness/as a way to cope with the idea of death could act as support for the policy’s usefulness in making prisoner’s repent their crimes. 
+
+## References 
+
+Cooey, P. (2002). Womens religious conversions on death row: theorizing religion and state. Journal of the American Academy of Religion,70(4), 699-718. doi:10.1093/jaar/70.4.699
+
+Facts about the Death Penalty. (n.d.). Retrieved February 8, 2018, from https://deathpenaltyinfo.org/documents/FactSheet.pdf
+
+Heflick, N. A. (2005). Sentenced to Die: Last Statements and Dying on Death Row. OMEGA - Journal of Death and Dying, 51(4), 323-336. doi:10.219096x8-flut-tclh-el71/
+
+Lachance, D. (2007). Last Words, Last Meals, and Last Stands: Agency and Individuality in the Modern Execution Process. Law & Social Inquiry, 32(3), 701-724. doi:10.1111/j.1747-4469.2007.00074.x
+
+Pierce, G. L., & Radelet, M. L. (2011). Death Sentencing in East Baton Rouge Parish, 1990– 2008. Louisiana Law Review, 71(2). Retrieved February 7, 2018, from https://digitalcommons.law.lsu.edu/lalrev/vol71/iss2/6/.
+
+Race and the Death Penalty. (n.d.). Retrieved February 08, 2018, from https://www.aclu.org/other/race-and-death-penalty
+
+Snell, T. L. (2011, December 20). Capital Punishment, 2010 - Statistical Tables. Retrieved February 08, 2018, from http://www.bjs.gov/index.cfm?ty=pbdetail&iid=2236
+
+Simons, M. A. (2004). Born again on Death Row: Retribution, Remorse, and Religion . Catholic Lawyer 43 Cath. Retrieved from http://heinonline.org/HOL/Page?handle=hein.journals/cathl43&div=18&g_sent=1&casa_token=&collection=journals
+
+The Future of the Death Penalty in the U.S.: A Texas-Sized Crisis. (n.d.). Retrieved February 08, 2018, from https://deathpenaltyinfo.org/the-future-of-the-death-penalty
+
+
+Dataset available here: 
+<https://www.kaggle.com/mykhe1097/last-words-of-death-row-inmates/data>
+
+Contents of the dataset:
+<https://www.kaggle.com/mykhe1097/last-words-of-death-row-inmates>
+
+## Data Summary
+
+The dataset is derived from the Texas Department of Criminal Justice and is published on the department’s online website underneath “Death Row Information” and “Executed Offenders.” The final published dataset can be accessed at: https://www.kaggle.com/mykhe1097/last-words-of-death-row-inmates. The data was collected on human subjects who were on death row in Texas from 1972 to 2017. The original dataset has 10 variables, and has been adjusted with external links provided to a final amount of 21 variables that have been scrapped from the web and manually inputted with the interest of learning the demographics of death row inmates. In the Acknowledgement of the dataset, the contributors to the dataset acknowledge that there may be inconsistencies in the recording the victim’s last statements since they are sometimes written in first or third person. As a result, there’s a possibility that statements recorded in the third person voice might not contain exact or original wording of the executed offender.
+
+### Load packages and set ggplot theme
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(textfeatures)
+```
+
+### Load data 
+```{r}
+inmate_data = read.csv("https://raw.githubusercontent.com/becnichelesmith/stats60/master/Texas%20Last%20Statement%20-%20CSV.csv", stringsAsFactors = FALSE, fileEncoding="latin1" )
+```
+
+## Cleaning data
+We are removing irrelevant columns and creating a new column, TimeOnDeathRow, which indicates how many years the inmate spent on death row. We are keeping first and last names so that we can find and research outliers further if they arise.   
+We discovered that the LastStatement column is a factor, not a character vector. To fix this, we set "stringsAsFactors" to False when reading the csv.
+
+```{r}
+inmate_data = inmate_data %>%
+  select(LastName, FirstName, Age, Race, AgeWhenReceived, LastStatement) %>%
+  filter(!is.na(Age),!is.na(AgeWhenReceived), AgeWhenReceived<Age, LastStatement != "None")
+```
+
+
+## Summarize and plot demographics
+# Age
+Participant ages range from 24 to 67, covering a broad range of generations. The average age is about 39 years old and the median is 38, meaning that the data lacks statistically significant outliers, and that there are sufficient numbers of participants across age groups.
+
+```{r}
+inmate_data %>%
+  group_by(Age) %>%
+  summarise(n = n())
+
+inmate_data %>%
+ summarise(meanAge = mean(Age))
+
+inmate_data %>%
+  summarise(median = median(Age))
+```
+
+# Race
+The racial breakdown of the inmates is 40% Black, 42.9% White, 20% Hispanic, and 1% Other. The modal race is is White. 
+```{r}
+inmate_data %>%
+  group_by(Race) %>%
+  summarise(n = n()) 
+
+
+pBlack <- sum(inmate_data$Race == 'Black')/nrow(inmate_data)
+pWhite <- sum(inmate_data$Race == 'White')/nrow(inmate_data)
+pHispanic <- sum(inmate_data$Race == 'Hispanic')/nrow(inmate_data)
+pOther <- sum(inmate_data$Race == 'Other')/nrow(inmate_data)
+percentages <-c(pBlack, pWhite, pHispanic, pOther)
+mode <- max(percentages)
+
+```
+
+
+## Variables of interest
+
+#Religiousity score
+Our religious score variable can be coded as a rational variable of integer type, recording the position of each inmate on a religiousity scale. The score is equivalent to the percentage of religious words in the last statement (equal to religious words divided by total words). 
+
+Using the words below, we calculated each inmate's religiousity score by seeing how often each word appeared in their last statement. Sources: https://stackoverflow.com/questions/43278743/custom-function-with-mutate-do-not-work https://stackoverflow.com/questions/7782113/count-word-occurrences-in-r
+
+Per our peer review suggestions, we modified this code and solved an issue where str_count would return all substring occurances (i.e., "hell" would count as one for the word "hello"). We also decided to incorporate the number of words in a statement, changing relgiousity from the total number of religious words to the total percentage of religious words. 
+
+Calculating Religious Score
+```{r}
+religious_words = c("god", "gods","jesus", "christ", "lord", "grace", "reverend", "heaven", "hell", "devil", "satan", "lucifer", "christian", "bless", "blessing", "blessings", "spirit", "spirits", "faith", "amen", "father", "soul", "worship", "savior", "priest", "priests", "cross", "crucify", "bible", "holy", "minister", "pastors", "church", "churches", "chapel", "pray", "prayer", "prayers", "paradise", "almighty", "ressurect", "ressurection", "afterlife", "mercy", "king", "angel", "angel", "saint", "saints", "sin", "sins", "allah", "quran", "koran", "glory", "prophet", "muhammad", "mohammad", "mohamed", "muhamed", "mohamad", "muhamad", "praise")
+
+
+calculateReligionScore <- function(statement){
+#lowercase last statement
+LowercaseStatement = tolower(statement)
+#add regex to each religious word so searching will match for exact word instead of pattern (hello won't count hell)
+addedRegexBefore = paste("\\b",religious_words,sep="")
+addedRegexAfter = paste(addedRegexBefore,"\\b",sep="")
+#count total number of religious words
+religiousWords = sum( str_count(LowercaseStatement, addedRegexAfter)  )
+#calculate total number of words in last statement
+textFeatures = textfeatures(LowercaseStatement)
+numWords = textFeatures$n_words
+#calculate Religiousity score by dividing # of religious words by # of total words
+Religiousity = (religiousWords/numWords)
+
+return(Religiousity)
+}
+
+
+inmate_data = inmate_data %>%
+  rowwise() %>%
+  mutate(ReligiousScore = calculateReligionScore(LastStatement))
+```
+
+Religious scores range from 0 to 0.375. The inter-quartile range for religious scores is .04, the variance is 1.99e-3, and the standard deviation is .045. The average religious score is .028 and the median is .013. The percentage of last words with religious content is about 58.8%. 
+
+Out of 422 people around 150 participants scored 0 for religiousity score.
+
+Plotting the religious score by age utilizing a box plot shows that the most religious inmates fall on the younger end of the age spectrum, whereas the oldest individual falls at the end of the religious spectrum with a score of .008. 
+
+#Religious Score Variable Analysis
+```{r}
+#IQR
+IQR = IQR(inmate_data$ReligiousScore)
+
+#variance
+variance = var(inmate_data$ReligiousScore)
+#sd
+sd = sd(inmate_data$ReligiousScore)
+#mean
+mean = mean(inmate_data$ReligiousScore)
+#median
+median=median(inmate_data$ReligiousScore)
+#percentage of last words with religious content
+pReligious <- sum(inmate_data$ReligiousScore>0)/nrow(inmate_data)
+
+
+#GRAPH:bar graph showing distribution of religious score variable
+ggplot(inmate_data, aes(x=ReligiousScore)) +
+  geom_histogram() + geom_vline(xintercept=mean, colour='black') + 
+  geom_vline(xintercept=median, colour='red') 
+
+#GRAPHL single box plots showing the distribution of religious scores.
+ggplot(inmate_data, aes(y=ReligiousScore, x=1)) +
+  geom_boxplot() 
+
+#GRAPH:box plots showing average age per each religious score and outliers
+ggplot(inmate_data, aes(factor(x=Age), y=ReligiousScore)) +
+  geom_boxplot() 
+
+
+
+
+```
+
+#Religious Inmate Subset Analysis
+Of the subset of the inmates who had some religious content in their last words, the mean religious score was 0.047 and the median is 0.032. 
+```{r}
+inmate_data$isReligious <- inmate_data$ReligiousScore >0
+religious_data = subset(inmate_data, subset =isReligious) 
+
+religious_data %>%
+ group_by(ReligiousScore) %>%
+summarise (n=n())
+
+meanReligiousScore = mean(religious_data$ReligiousScore)
+medianReligiousScore = median(religious_data$ReligiousScore)
+```
+
+# Time on death row Variable
+The time on death row variable reflects how long the inmate has spent on death row, subtracting the inmate’s age when received from their age at their date of death. This variable is a numeric ratio scale, taking on the value of the years spent on death row in integer form. 
+
+```{r}
+#Creation of Time on Death Row variable
+inmate_data = inmate_data %>%
+  mutate(TimeOnDeathRow = Age - AgeWhenReceived)
+```
+
+Inmates spend between 1 year and 31 years on death row. The average time on death row is 11.06 years, and the median time is 10. 
+
+```{r}
+#Summary of Time On Death Row
+inmate_data %>%
+  group_by(TimeOnDeathRow)%>%
+  summarise(n=n())
+
+meanDR= mean(inmate_data$TimeOnDeathRow)
+medianDR= median(inmate_data$TimeOnDeathRow)
+
+ggplot(inmate_data, aes(TimeOnDeathRow, fill = Race)) +
+  geom_histogram(color="black")
+```
+
+Among the top 3 races, inmates spend fairly equal time on death row. Black inmates spend the most, at an average 11.26 years, while Hispanic inmates spend the least, with 10.8
+
+```{r}
+#Summary: Time on Death Row (race groupings)
+inmate_data %>%
+  group_by(Race) %>%
+  summarise(meanTime=mean(TimeOnDeathRow))
+
+```
+
+###TESTING
+#Core Result Hypothesis Testing
+Tests: We chose to run correlation tests (Pearson's and Spearman's) on the relationship between TimeOnDeathRow and ReligiousScore, because we are testing two rational, continuous variables. Given the strong effect of outliers in affecting the value of Pearson's correlation, we considered running Spearman's correlation to mitigate the effects of the few points with over twenty religious words. However, Spearman's was not an apt model for our dataset because rank could not be computed among various instances of equal p-values. We also computed a linear regression, which allows us to graphically model our relationship.
+
+Results: The Pearson's correlation proved no statistically significant correlation (0.01). The linear regression model reflected this, with a slope of .012 and a Y intercept at 2.11.
+```{r}
+#Pearson's correlation
+cor.test(inmate_data$ReligiousScore, inmate_data$TimeOnDeathRow)
+#Linear regression
+lm(ReligiousScore~TimeOnDeathRow, inmate_data)
+#GGplot + line of best fit
+ggplot(data=inmate_data, aes(x=TimeOnDeathRow, y=ReligiousScore)) + 
+  geom_point() + stat_smooth(method = "lm", col = "red") + 
+  ggtitle("Core Result: Religious Score by Time on Death Row") + xlab("Time on Death Row (Years)") + ylab("Religious Score")
+
+```
+
+#Checking other continuous variables interference: Age When Recieved & Age
+Tests: We tested Age and AgeWhenRecieved as potential other continuous, rational variables correlated with Religious Score. We ran Pearson's rank correlation test to check strength of the relationships. We also ran a linear regression to test the relationship, so as to model the relationship clearly on the graph.
+
+Results: Neither variable showed a meaningful interaction with the ReligiousScore variable, with both Pearson's rank variables between 0 and .1. AgeWhenRecieved proved an approximate -.01 Pearson's correlation, while Age had an approximate 0 correlation. The slope of the AgeWhenReceived linear regression is approximately 0, while the intercept is approximately 2.39. The slope of the Age linear regression is approximately also approximately 0, while the intercept is 2.27. The distribution of both graphs is very similar the distribution of the respective X variables independently of religious scores. An interesting feature to note is that, contrary to our hypothesis, the top 1% (6 inmates/422 observations) of ReligiousScore values are all concentrated below the mean of the Age and AgeWhenRecieved range. 
+```{r}
+#AgeWhenRecieved - Pearson's
+cor.test(inmate_data$ReligiousScore, inmate_data$AgeWhenReceived) 
+#AgeWhenRecieved - Linear Regression 
+lm(ReligiousScore~AgeWhenReceived, inmate_data)
+#AgeWhenRecieved-  Scatter plot
+ggplot(data=inmate_data, aes(x=AgeWhenReceived, y=ReligiousScore)) + geom_point() + stat_smooth(method = "lm", col = "blue") + ggtitle("Religious Score by Age When Sentenced") +
+  xlab("Age When Sentenced") + ylab("Religious Score")
+
+#Age- Pearson's
+cor.test(inmate_data$ReligiousScore, inmate_data$Age)
+#Age- Linear Regression
+lm(ReligiousScore~Age, inmate_data)
+#Age- Scatter Plot
+ggplot(data=inmate_data, aes(x=Age, y=ReligiousScore)) + geom_point() + stat_smooth(method = "lm", col = "green") + 
+  ggtitle("Religious Score by Age") +
+  xlab("Age at Death") + ylab("Religious Score")
+```
+
+#Mapping variables against Race
+In this section, we check the interaction of race with our dataset. In grouping by Race, it becomes clear that race does not have statistically significant relationship to ReligiousScore. 
+```{r}
+#Graph: core distribution by race
+ggplot(data = inmate_data, aes(x = TimeOnDeathRow, y = ReligiousScore, group = Race, color = Race)) + 
+  geom_point() + stat_smooth(method = "lm")
+
+#Same graph but faceted
+ggplot(data = inmate_data, aes(x = TimeOnDeathRow, y = ReligiousScore, group = Race, color = Race)) + 
+  geom_point() + stat_smooth(method = "lm") + facet_grid(. ~Race)
+
+```
+
+#Decision not to use sampling suggestion from Peer 
